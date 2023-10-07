@@ -13,7 +13,9 @@ def main():
     
     # Allow prompt input
     user_prompt = st.text_input(
-        "User's Prompt", value='', 
+        "User's Prompt", 
+        value='',
+        max_char=100,
         placeholder='Ask me anything... (Shift + Enter = Line Break)',
         label_visibility='visible',
     )
