@@ -12,13 +12,22 @@ def main():
     st.write('✨ Advanced Features: WebSearch, Image Generation')
     
     # Allow prompt input
-    user_prompt = st.text_input(
-        "User's Prompt", 
-        value='',
-        max_char=100,
-        placeholder='Ask me anything... (Shift + Enter = Line Break)',
-        label_visibility='visible',
-    )
+    with st.form("User's Prompt"):
+        user_prompt = st.text_input(
+            "User's Prompt", 
+            value='',
+            max_chars=100,
+            placeholder='Ask me anything... (Shift + Enter = Line Break)',
+            label_visibility='visible',
+        )
+        btn_result = st.form_submit_button('Generate')
+        
+        # Determine output path
+        if btn_result:
+            if 'search' in user_prompt:
+                with st.spinner('Nexus AI is now searching the web...'):
+                    st.write('Searching...')
+                    print("Searching")
     
 if __name__ == '__main__':
     main()
