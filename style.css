@@ -1,10 +1,33 @@
-div span.st-emotion-cache-10trblm {
-    background: linear-gradient( 58.2deg,  rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7% );
+/* Change header style */
+div .st-emotion-cache-18ni7ap {
+    background: transparent;
+}
+div .st-emotion-cache-1dp5vir {
+    height: 0.3rem;
+    background-image: linear-gradient(90deg,#b377fd 0%,#f8c9c3 75%);
+}
+
+/* Change background color */
+div .st-emotion-cache-fg4pbf {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 15 16/var(--tw-bg-opacity));
+    color: white;
+}
+
+/* Change title font settings */
+div .st-emotion-cache-10trblm {
+    background: linear-gradient(60deg,#b377fd 0%,#f8c9c3 40%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/*Hide default placeholder*/
+/* Change subheading font settings */
+div .st-emotion-cache-1q7spjk {
+    --tw-text-opacity: 1;
+    color: rgb(145 149 171/var(--tw-text-opacity));
+}
+
+/* Hide default placeholder */
 div.st-emotion-cache-1if5ada {
     visibility: hidden;
     }
