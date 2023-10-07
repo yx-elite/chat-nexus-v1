@@ -7,7 +7,7 @@ def main():
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     '''
     
-    st.title('CHAT NEXUS v 1.0')
+    st.title('CHAT NEXUS v1.0')
     st.caption('Developed by: Yi Xian (yx-elite)')
     st.write('✨ Advanced Features: WebSearch, Image Generation')
     
