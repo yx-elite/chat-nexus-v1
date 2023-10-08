@@ -27,7 +27,6 @@ def main():
             if 'search' in user_prompt:
                 with st.spinner('Nexus AI is now searching the web...'):
                     st.write('Searching...')
-                    print("Searching")
     
 if __name__ == '__main__':
     main()
