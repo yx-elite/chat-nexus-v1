@@ -10,21 +10,29 @@ def main():
     st.write('✨ Advanced Features: WebSearch, Image Generation')
     
     # Allow prompt input
-    with st.form("User's Prompt"):
-        user_prompt = st.text_input(
+    prompt_placeholder = st.form('chat-form')
+    with prompt_placeholder:
+        st.markdown("**User's Prompt**")
+        cols = st.columns((6,1))
+        user_prompt = cols[0].text_input(
             "User's Prompt", 
             value='',
             max_chars=100,
-            placeholder='Ask me anything... (Shift + Enter = Line Break)',
-            label_visibility='visible',
+            placeholder='Ask me anything... (Press Enter to Submit)',
+            key='input',
+            label_visibility='collapsed'
         )
-        btn_result = st.form_submit_button('Generate')
-        
-        # Determine output path
-        if btn_result:
-            if 'search' in user_prompt:
-                with st.spinner('Nexus AI is now searching the web...'):
-                    st.write('Searching...')
+        submit_btn = cols[1].form_submit_button(
+            'Submit',
+            type='primary',
+            on_click=lambda: on_click_callback(user_prompt),
+        )
+
+def on_click_callback(user_prompt):
+    # Process user's prompt
+    if 'search' in user_prompt:
+        with st.spinner('Nexus AI is now searching the web...'):
+            st.write('Searching...')
     
 if __name__ == '__main__':
     main()
