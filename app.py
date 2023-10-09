@@ -2,8 +2,8 @@ import streamlit as st
 
 
 def main():
-    # with open('style.css') as f:
-        # st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    with open('style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
     st.title('CHAT NEXUS v1.0')
     st.caption('Developed by: Yi Xian (yx-elite)')
