@@ -44,11 +44,12 @@ def handle_button_click(user_prompt, chat_placeholder):
                 st.write('Searching...')
                 print('Searching')
         else:
-            response = chat_connection(user_prompt)
-            st.write(response)
-            # Display results in terminal
-            print(f'User : {user_prompt}')
-            print(f'Assistant : {response}')
+            with st.spinner('Nexus AI is thinking...'):
+                response = chat_connection(user_prompt)
+                st.write(response)
+                # Display results in terminal
+                print(f'User : {user_prompt}')
+                print(f'Assistant : {response}')
 
 if __name__ == '__main__':
     main()
