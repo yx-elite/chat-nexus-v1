@@ -10,7 +10,7 @@ def main():
     # Set app info
     st.title('CHAT NEXUS v1.0')
     st.caption('Developed by: Yi Xian (yx-elite)')
-    st.write('✨ Advanced Features: WebSearch, Image Generation')
+    st.write('✨ Features: GPT AI Chatbot & Websearch')
 
     # Initialize placeholders for prompt and chat
     prompt_placeholder = st.form('chat-form')
@@ -46,6 +46,9 @@ def handle_button_click(user_prompt, chat_placeholder):
         else:
             response = chat_connection(user_prompt)
             st.write(response)
+            # Display results in terminal
+            print(f'User : {user_prompt}')
+            print(f'Assistant : {response}')
 
 if __name__ == '__main__':
     main()
