@@ -1,4 +1,6 @@
 import streamlit as st
+from app_function import chat_connection
+
 
 def main():
     # Load custom css
@@ -41,6 +43,9 @@ def handle_button_click(user_prompt, chat_placeholder):
             with st.spinner('Nexus AI is now searching the web...'):
                 st.write('Searching...')
                 print('Searching')
+        else:
+            response = chat_connection(user_prompt)
+            st.write(response)
 
 if __name__ == '__main__':
     main()
