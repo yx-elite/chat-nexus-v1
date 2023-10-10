@@ -48,8 +48,8 @@ def handle_button_click(user_prompt, chat_placeholder):
                 response = chat_connection(user_prompt)
                 st.write(response)
                 # Display results in terminal
-                print(f'User : {user_prompt}')
-                print(f'Assistant : {response}')
+                print(f'User \t\t: {user_prompt}')
+                print(f'Assistant \t: {response}\n\n')
 
 if __name__ == '__main__':
     main()
