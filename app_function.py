@@ -11,7 +11,7 @@ def load_api_key():
     return api_key
 
 
-def chat_connection(user_prompt):
+def chat_connection(user_prompt, max_token):
     # Load the API key
     api_key = load_api_key()
     # Set the API key for OpenAI
@@ -21,8 +21,9 @@ def chat_connection(user_prompt):
         messages=[
             {'role':'user', 'content':user_prompt}
         ],
-        max_tokens=100
+        max_tokens=max_token
     )
+    print(gpt_response)
     return gpt_response.choices[0].message.content.strip()
 
 
