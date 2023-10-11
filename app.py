@@ -18,7 +18,8 @@ def main():
 
     with prompt_placeholder:
         # Section header
-        st.markdown("**User's Prompt**")
+        st.markdown("**Set Maximum Token & input User's Prompt to start chatting**")
+        max_token = st.slider('Maximum Tokens', min_value=100, max_value=1000, value=500)
 
         # User prompt input field
         cols = st.columns((6, 1))
@@ -33,11 +34,11 @@ def main():
 
     # Handle actions upon button clicked    
     if submit_clicked:
-        handle_button_click(user_prompt, chat_placeholder)
+        handle_button_click(max_token, user_prompt, chat_placeholder)
 
 
 # Button click function
-def handle_button_click(user_prompt, chat_placeholder):
+def handle_button_click(max_token, user_prompt, chat_placeholder):
     with chat_placeholder:
         if 'search' in user_prompt:
             with st.spinner('Nexus AI is now searching the web...'):
@@ -47,7 +48,7 @@ def handle_button_click(user_prompt, chat_placeholder):
         else:
             try:
                 with st.spinner('Nexus AI is thinking...'):
-                    response = chat_connection(user_prompt)
+                    response = chat_connection(user_prompt, max_token)
                     st.write(response)
                     # Display results in terminal
                     print(f'User \t\t: {user_prompt}')
