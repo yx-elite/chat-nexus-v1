@@ -2,6 +2,7 @@ import os
 import openai
 from dotenv import load_dotenv
 
+
 def load_api_key():
     # Load environment variables
     load_dotenv()
