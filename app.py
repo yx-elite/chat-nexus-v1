@@ -27,9 +27,9 @@ def main():
             max_value=1000, 
             value=500, 
             step=100,
-            help="The maximum number of tokens to generate in the chat completion. The total .\
-                length of input tokens and generated tokens is limited by the model's context length.\
-                (Default = 500)"
+            help="The maximum number of tokens to generate in the chat completion. '\
+                The total length of input tokens and generated tokens is limited by the .\
+                model's context length. (Default = 500)"
         )
 
         # User prompt input field
