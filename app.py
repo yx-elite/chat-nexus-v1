@@ -18,19 +18,30 @@ def main():
 
     with prompt_placeholder:
         # Section header
-        st.markdown("**Set Maximum Token & input User's Prompt to start chatting**")
-        max_token = st.slider('Maximum Tokens', min_value=100, max_value=1000, value=500)
+        st.markdown("**User's Prompt**")
+        
+        # Set maximum token & temperature
+        max_token = st.slider(
+            'Maximum Tokens', 
+            min_value=100, 
+            max_value=1000, 
+            value=500, 
+            step=100,
+            help="The maximum number of tokens to generate in the chat completion. The total .\
+                length of input tokens and generated tokens is limited by the model's context length.\
+                (Default = 500)"
+        )
 
         # User prompt input field
-        cols = st.columns((6, 1))
-        user_prompt = cols[0].text_input(
+        cols_2 = st.columns((6, 1))
+        user_prompt = cols_2[0].text_input(
             'User Prompt',
             value='',
             max_chars=100,
             placeholder='Ask me anything... (Press Enter to Submit)',
             label_visibility='collapsed'
         )
-        submit_clicked = cols[1].form_submit_button('Submit', type='primary')
+        submit_clicked = cols_2[1].form_submit_button('Submit', type='primary')
 
     # Handle actions upon button clicked    
     if submit_clicked:
