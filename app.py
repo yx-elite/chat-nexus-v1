@@ -43,26 +43,22 @@ def handle_button_click(user_prompt, chat_placeholder):
             with st.spinner('Nexus AI is now searching the web...'):
                 st.write('Searching...')
                 print('Searching')
+        
         else:
-            with st.spinner('Nexus AI is thinking...'):
-                response = chat_connection(user_prompt)
-                st.write(response)
-                # Display results in terminal
-                print(f'User \t\t: {user_prompt}')
-                print(f'Assistant \t: {response}\n\n')
-    
-'''    if st.button('Save'):
-        histories = chat_placeholder.queue
-        save_histories(histories)'''
+            try:
+                with st.spinner('Nexus AI is thinking...'):
+                    response = chat_connection(user_prompt)
+                    st.write(response)
+                    # Display results in terminal
+                    print(f'User \t\t: {user_prompt}')
+                    print(f'Assistant \t: {response}\n\n')
+                
+                st.success("Answer is generated successfully")
+            
+            except Exception as e:
+                # Error handling
+                st.error(f"An error occurred: {str(e)}")
 
-
-'''def save_histories(histories):
-    file_path = st.file_save_dialog("history", filetypes=["txt"])
-    
-    if file_path:
-        with open(file_path, 'w') as f:
-            for history in histories:
-                f.write(str(history) + '\n')'''
 
 
 if __name__ == '__main__':
