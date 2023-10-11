@@ -50,6 +50,20 @@ def handle_button_click(user_prompt, chat_placeholder):
                 # Display results in terminal
                 print(f'User \t\t: {user_prompt}')
                 print(f'Assistant \t: {response}\n\n')
+    
+'''    if st.button('Save'):
+        histories = chat_placeholder.queue
+        save_histories(histories)'''
+
+
+'''def save_histories(histories):
+    file_path = st.file_save_dialog("history", filetypes=["txt"])
+    
+    if file_path:
+        with open(file_path, 'w') as f:
+            for history in histories:
+                f.write(str(history) + '\n')'''
+
 
 if __name__ == '__main__':
     main()
