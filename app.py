@@ -27,17 +27,19 @@ def main():
             max_value=1000, 
             value=500, 
             step=100,
-            help="The maximum number of tokens to generate in the chat completion. The total length of input tokens .\
+            help="The maximum number of tokens to generate in the chat completion. The total length of input tokens \
                 and generated tokens is limited by the model's context length. (Default = 500)"
         )
         temperature = st.slider(
             'Temperature',
-            min_value=0,
-            max_value=2,
-            value=1,
+            min_value=0.0,
+            max_value=2.0,
+            value=1.0,
             step=0.1,
-            help="Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it .\
-                more focused and deterministic. We generally recommend altering this or top p but not both. (Default: 1)"
+            format='%.1f',
+            help="Lower values like 0.2 will make the output more focused and deterministic, while higher values \
+                like 0.8 will make the output more random. We generally recommend altering this or \"Top-P\" but not both. \
+                (Default: 1)"
         )
 
         # User prompt input field
@@ -51,13 +53,14 @@ def main():
         )
         submit_clicked = cols_2[1].form_submit_button('Submit', type='primary')
 
+
     # Handle actions upon button clicked    
     if submit_clicked:
         handle_button_click(user_prompt, chat_placeholder, max_token, temperature)
 
 
 # Button click function
-def handle_button_click(max_token, user_prompt, chat_placeholder, temperature):
+def handle_button_click(user_prompt, chat_placeholder, max_token, temperature):
     with chat_placeholder:
         if 'search' in user_prompt:
             with st.spinner('Nexus AI is now searching the web...'):

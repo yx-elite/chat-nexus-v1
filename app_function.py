@@ -11,7 +11,7 @@ def load_api_key():
     return api_key
 
 
-def chat_connection(user_prompt, max_token):
+def chat_connection(user_prompt, max_token=500, temperature=0.8):
     # Load the API key
     api_key = load_api_key()
     # Set the API key for OpenAI
@@ -22,7 +22,7 @@ def chat_connection(user_prompt, max_token):
             {'role':'user', 'content':user_prompt}
         ],
         max_tokens=max_token,
-        top_p=
+        temperature=temperature
     )
     print(gpt_response)
     return gpt_response.choices[0].message.content.strip()
