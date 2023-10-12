@@ -4,8 +4,8 @@ from app_function import chat_connection
 
 def main():
     # Load custom css
-    with open('style.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    #with open('style.css') as f:
+    #    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
     # Set app info
     st.title('CHAT NEXUS v1.0')
@@ -34,12 +34,12 @@ def main():
             'Temperature',
             min_value=0.0,
             max_value=2.0,
-            value=1.0,
+            value=0.8,
             step=0.1,
             format='%.1f',
             help="Lower values like 0.2 will make the output more focused and deterministic, while higher values \
-                like 0.8 will make the output more random. We generally recommend altering this or \"Top-P\" but not both. \
-                (Default: 1)"
+                like 0.8 will make the output more random. We generally recommend altering this or \"Top-p\" but not both. \
+                (Default: 0.8)"
         )
 
         # User prompt input field
