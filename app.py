@@ -27,9 +27,17 @@ def main():
             max_value=1000, 
             value=500, 
             step=100,
-            help="The maximum number of tokens to generate in the chat completion. '\
-                The total length of input tokens and generated tokens is limited by the .\
-                model's context length. (Default = 500)"
+            help="The maximum number of tokens to generate in the chat completion. The total length of input tokens .\
+                and generated tokens is limited by the model's context length. (Default = 500)"
+        )
+        temperature = st.slider(
+            'Temperature',
+            min_value=0,
+            max_value=2,
+            value=1,
+            step=0.1,
+            help="Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it .\
+                more focused and deterministic. We generally recommend altering this or top p but not both. (Default: 1)"
         )
 
         # User prompt input field
@@ -45,11 +53,11 @@ def main():
 
     # Handle actions upon button clicked    
     if submit_clicked:
-        handle_button_click(max_token, user_prompt, chat_placeholder)
+        handle_button_click(user_prompt, chat_placeholder, max_token, temperature)
 
 
 # Button click function
-def handle_button_click(max_token, user_prompt, chat_placeholder):
+def handle_button_click(max_token, user_prompt, chat_placeholder, temperature):
     with chat_placeholder:
         if 'search' in user_prompt:
             with st.spinner('Nexus AI is now searching the web...'):
@@ -59,7 +67,7 @@ def handle_button_click(max_token, user_prompt, chat_placeholder):
         else:
             try:
                 with st.spinner('Nexus AI is thinking...'):
-                    response = chat_connection(user_prompt, max_token)
+                    response = chat_connection(user_prompt, max_token, temperature)
                     st.write(response)
                     # Display results in terminal
                     print(f'User \t\t: {user_prompt}')
