@@ -21,7 +21,8 @@ def chat_connection(user_prompt, max_token):
         messages=[
             {'role':'user', 'content':user_prompt}
         ],
-        max_tokens=max_token
+        max_tokens=max_token,
+        top_p=
     )
     print(gpt_response)
     return gpt_response.choices[0].message.content.strip()
