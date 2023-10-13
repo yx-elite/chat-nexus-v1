@@ -1,5 +1,5 @@
 import streamlit as st
-import app_function as af
+from app_function import chat_connection
 
 def main():
     # Load custom css
@@ -69,12 +69,9 @@ def handle_button_click(user_prompt, chat_placeholder, max_token, temperature):
         else:
             try:
                 with st.spinner('Nexus AI is thinking...'):
-                    response = af.chat_connection(user_prompt, max_token, temperature)
-                    msg = af.chat_message()
-                    st.write(msg)
+                    response = chat_connection(user_prompt, max_token, temperature)
+                    st.write(response)
                     # Display results in terminal
-                    prompt_tokens = af.get_prompt_tokens(response)
-                    print("Prompt Tokens:", prompt_tokens)
                     print(f'User \t\t: {user_prompt}')
                     print(f'Assistant \t: {response}\n\n')
                 
