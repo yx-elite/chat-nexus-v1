@@ -2,12 +2,14 @@ import os
 import openai
 from dotenv import load_dotenv
 
+
 def load_api_base_url():
     # Load environment variables
     load_dotenv()
     # Get the API endpoint
     api_base_url = os.getenv("OPENAI_API_BASE")
     return api_base_url
+
 
 def load_api_key():
     # Load environment variables
