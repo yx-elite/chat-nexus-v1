@@ -3,8 +3,8 @@ from app_function import chat_connection
 
 def main():
     # Load custom css
-    #with open('style.css') as f:
-    #    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    with open('style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
     # Set app info
     st.title('CHAT NEXUS v1.0')
