@@ -34,7 +34,7 @@ def chat_connection(user_prompt, max_token=500, temperature=0.8):
         max_tokens=max_token,
         temperature=temperature
     )
-    # print(gpt_response)
+    print(gpt_response)
     return gpt_response.choices[0].message.content.strip()
 
 
