@@ -1,5 +1,5 @@
 import streamlit as st
-from app_function import chat_connection
+from api_function import chat_connection
 
 def main():
     # Load custom css
